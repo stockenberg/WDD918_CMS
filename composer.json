@@ -1,0 +1,11 @@
+{
+    "name": "mad/cms",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Marten Stockenberg",
+            "email": "MStockenberg@googlemail.com"
+        }
+    ],
+    "require": {}
+}
