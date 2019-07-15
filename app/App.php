@@ -1,10 +1,19 @@
 <?php
 
+require './app/core/Navigation.php';
 
 class App
 {
     public function init()
     {
+        /**
+         * Prüfung navigation:
+         * komische Zeichen
+         * empty || != '' length > 0
+         * is die seite vorhanden? file_exists() => 404
+         */
+
+
     }
 
     /**
@@ -14,6 +23,8 @@ class App
      */
     public function getCurrentPageTemplate()
     {
-        return 'pages/' . $_GET['page'] . '.php';
+        $nav = new Navigation();
+        return './pages/' .  $nav->getPageName($_GET['page'] ?? '') . '.php';
     }
+
 }
