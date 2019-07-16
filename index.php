@@ -1,10 +1,8 @@
 <?php
+require 'vendor/autoload.php';
 
-require('./app/App.php');
-
-$app = new App();
+$app = new \app\App();
 $app->init();
-
 ?>
 
 <!doctype html>

@@ -1,17 +1,27 @@
 <?php
 
-require './app/core/Navigation.php';
+namespace app;
+
+use app\controller\LoginController;
+use app\core\Navigation;
+
 
 class App
 {
     public function init()
     {
-        /**
-         * Prüfung navigation:
-         * komische Zeichen
-         * empty || != '' length > 0
-         * is die seite vorhanden? file_exists() => 404
-         */
+
+        switch ($_GET['page'] ?? ''){
+            case 'home':
+                echo "load login controller";
+                echo "validate login data";
+                break;
+
+            case 'login':
+                $login = new LoginController();
+                $login->init();
+                break;
+        }
 
 
     }

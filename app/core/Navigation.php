@@ -1,5 +1,7 @@
 <?php
-require('app/interfaces/INavigation.php');
+namespace app\core;
+
+use app\interfaces\INavigation;
 
 /**
  * General navigation purposes
@@ -14,7 +16,7 @@ class Navigation implements INavigation
     private $param_name = 'page';
 
     /** @var array  */
-    private $whitelist = ['home', 'about', 'contact'];
+    private $whitelist = ['home', 'login', 'contact'];
 
     /**
      * Get the validated Page-Name if:
@@ -44,8 +46,7 @@ class Navigation implements INavigation
             return $this->pagename;
         }
 
-        $this->pagename = $GET_page_param;
-        return $this->pagename;
+        return $GET_page_param;
     }
 
     /**
