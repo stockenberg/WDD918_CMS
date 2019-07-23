@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controller;
+namespace app\controller;i
 
 
 class LoginController
