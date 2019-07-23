@@ -11,10 +11,10 @@ class App
     public function init()
     {
 
+
         switch ($_GET['page'] ?? ''){
             case 'home':
-                echo "load login controller";
-                echo "validate login data";
+
                 break;
 
             case 'login':

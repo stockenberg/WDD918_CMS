@@ -1,8 +1,8 @@
 <?php
 require 'vendor/autoload.php';
-
 $app = new \app\App();
 $app->init();
+
 ?>
 
 <!doctype html>
