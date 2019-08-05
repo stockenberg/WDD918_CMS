@@ -10,9 +10,11 @@ class App
 {
     public function init()
     {
+        session_name('minifacebook');
+        session_start();
 
 
-        switch ($_GET['page'] ?? ''){
+        switch ($_GET['page'] ?? '') {
             case 'home':
 
                 break;
@@ -34,7 +36,12 @@ class App
     public function getCurrentPageTemplate()
     {
         $nav = new Navigation();
-        return './pages/' .  $nav->getPageName($_GET['page'] ?? '') . '.php';
+        return './pages/' . $nav->getPageName($_GET['page'] ?? '') . '.php';
+    }
+
+    public static function isLoggedIn()
+    {
+        return !empty($_SESSION['auth'] ?? []);
     }
 
 }

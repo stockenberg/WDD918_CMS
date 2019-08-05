@@ -9,11 +9,11 @@ class LoginTransfer
     private $username;
     private $password;
 
-    public function __construct($post)
+    public function __construct($post = null)
     {
-        foreach ($post as $k => $v){
-            $setter = 'set' . ucfirst($k);
-            $this->$setter($v);
+        foreach ($post ?? [] as $input => $value){
+            $setter = 'set' . ucfirst($input);
+            $this->$setter($value);
         }
     }
 
