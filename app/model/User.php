@@ -17,10 +17,11 @@ class User
         $db = $this->connect();
         $SQL = 'SELECT * FROM users WHERE username = :username';
         $stmt = $db->prepare($SQL);
-        $stmt->execute([
-            ':username' => $login->getUsername()
-        ]);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        if($stmt->execute([':username' => $login->getUsername()])){
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        return false;
     }
+
     
 }

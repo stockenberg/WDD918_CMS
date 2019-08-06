@@ -28,6 +28,9 @@ $app->init();
             <li><a href="?page=home">Home</a></li>
             <li><a href="?page=about">About</a></li>
             <li><a href="?page=contact">Contact</a></li>
+            <?php if(\app\core\Guard::isLoggedIn()) : ?>
+             <li><a href="?action=logout">Logout</a></li>
+            <?php endif; ?>
         </ul>
     </div>
     <div class="top-bar-right">
@@ -37,6 +40,7 @@ $app->init();
         </ul>
     </div>
 </div>
+<h2><?= \app\core\Status::read('status') ?></h2>
 
 <main class="grid-container">
     <?php include $app->getCurrentPageTemplate(); ?>

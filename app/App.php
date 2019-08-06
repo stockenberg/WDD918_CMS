@@ -3,6 +3,8 @@
 namespace app;
 
 use app\controller\LoginController;
+use app\controller\NewsController;
+use app\core\Guard;
 use app\core\Navigation;
 
 
@@ -16,16 +18,27 @@ class App
 
         switch ($_GET['page'] ?? '') {
             case 'home':
-
+                Guard::protect();
                 break;
 
             case 'login':
                 $login = new LoginController();
                 $login->init();
                 break;
+
+            case 'manage_news':
+                Guard::protect();
+                $news = new NewsController();
+                $news->init();
+                break;
         }
 
-
+        if(isset($_GET['action'])){
+            if($_GET['action'] === 'logout' ){
+                $_SESSION['auth'] = [];
+                session_destroy();
+            }
+        }
     }
 
     /**
@@ -39,9 +52,6 @@ class App
         return './pages/' . $nav->getPageName($_GET['page'] ?? '') . '.php';
     }
 
-    public static function isLoggedIn()
-    {
-        return !empty($_SESSION['auth'] ?? []);
-    }
+
 
 }

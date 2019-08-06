@@ -16,7 +16,7 @@ class Navigation implements INavigation
     private $param_name = 'page';
 
     /** @var array  */
-    private $whitelist = ['home', 'login', 'contact'];
+    private $whitelist = ['home', 'login', 'contact', 'manage_news'];
 
     /**
      * Get the validated Page-Name if:

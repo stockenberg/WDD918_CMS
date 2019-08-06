@@ -43,6 +43,10 @@ class LoginController
         }
     }
 
+    /**
+     * @param array $post
+     * @return bool
+     */
     public function isValid(Array $post = []) : bool
     {
         if(!empty($post)){
