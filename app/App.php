@@ -10,6 +10,9 @@ use app\core\Navigation;
 
 class App
 {
+
+    public $data;
+
     public function init()
     {
         session_name('minifacebook');
@@ -26,10 +29,12 @@ class App
                 $login->init();
                 break;
 
+            case 'edit_news':
             case 'manage_news':
+            case 'create_news':
                 Guard::protect();
                 $news = new NewsController();
-                $news->init();
+                $this->data = $news->init();
                 break;
         }
 
@@ -50,6 +55,14 @@ class App
     {
         $nav = new Navigation();
         return './pages/' . $nav->getPageName($_GET['page'] ?? '') . '.php';
+    }
+
+    /**
+     * @param $page
+     */
+    public static function redirect($page){
+        header('Location: ?page=' . $page);
+        exit();
     }
 
 
