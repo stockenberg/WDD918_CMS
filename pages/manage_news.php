@@ -14,9 +14,6 @@
         </thead>
         <tbody>
         <?php
-        /**
-         * @var $news \app\model\transfer\NewsTransfer
-         */
         foreach ($app->data as $index => $news) : ?>
             <tr>
                 <td><?= $news['id'] ?></td>
