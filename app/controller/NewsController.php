@@ -28,7 +28,7 @@ class NewsController
                     $newsTransfer->setTitle($_POST['title']);
                     $newsTransfer->setContent($_POST['content']);
 
-                    // upload validation => codeguy/upload
+                    // upload validation => codeguy/upload als alternative ;)
                     $file = new File($_FILES['image']);
                     $name = $file->store();
 
