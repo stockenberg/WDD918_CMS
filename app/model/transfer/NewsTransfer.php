@@ -8,6 +8,24 @@ class NewsTransfer
 {
     private $title;
     private $content;
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
 
     /**
      * @return mixed

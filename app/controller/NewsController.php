@@ -6,11 +6,16 @@ namespace app\controller;
 
 use app\App;
 use app\core\Status;
+use app\helpers\File;
 use app\model\News;
 use app\model\transfer\NewsTransfer;
 
 class NewsController
 {
+
+    /**
+     * @return array
+     */
 
     public function init()
     {
@@ -22,6 +27,12 @@ class NewsController
                     $newsTransfer = new NewsTransfer();
                     $newsTransfer->setTitle($_POST['title']);
                     $newsTransfer->setContent($_POST['content']);
+
+                    // upload validation => codeguy/upload
+                    $file = new File($_FILES['image']);
+                    $name = $file->store();
+
+                    $newsTransfer->setImage($name);
 
                     if($model->save($newsTransfer)){
                         App::redirect('manage_news');

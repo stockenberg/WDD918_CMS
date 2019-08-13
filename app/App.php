@@ -31,7 +31,7 @@ class App
 
             case 'edit_news':
             case 'manage_news':
-            case 'create_news':
+            case 'create_news';
                 Guard::protect();
                 $news = new NewsController();
                 $this->data = $news->init();

@@ -15,11 +15,12 @@ class News
     public function save(NewsTransfer $newsTransfer)
     {
         $db = $this->connect();
-        $SQL = 'INSERT INTO news (title, content) VALUES (:title, :content)';
+        $SQL = 'INSERT INTO news (title, content, image) VALUES (:title, :content, :image)';
         $stmt = $db->prepare($SQL);
         return $stmt->execute([
             ':title' => $newsTransfer->getTitle(),
             ':content' => $newsTransfer->getContent(),
+            ':image' => $newsTransfer->getImage(),
         ]);
     }
 
